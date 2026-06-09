@@ -12,12 +12,44 @@
         function addStar(btn){
             btn.textContent += '★';
         }
+        function overChange(btn){
+            btn.style.backgroundColor = "yellow";
+            btn.style.color = "black";
+        }
+        function outChange(btn){
+            btn.style.backgroundColor = "lightgray";
+            btn.style.color = "black";
+        }
+
+        let count = 1;
+        function changeImg(img){
+           count++;
+           if(count == 6){
+            count = 1;
+           }
+           img.src = "imgs/cr" + count + ".jpg";
+        }
+
+        function showImageSlide(){
+            let img = document.getElementById("img2");
+            setInterval(function(){
+                count++;
+                if(count == 6){
+                    count = 1;
+                }
+                img.src = "imgs/cr" + count + ".jpg";
+            }, 2000);
+        
+        }
     </script>
 </head>
 <body>
+    <body onload="showImageSlide()">
     <button onclick="alert('인라인 이벤트 모델')">인라인 이벤트 모델</button><br><br>
     <button onclick="greet()">인라인 이벤트 모델 2</button><br><br>
-    
-    <button onclick="addStar(this)">별 추가</button>
+    <button onclick="addStar(this)">별 추가</button><br><br>
+    <button onmouseover="overChange(this)" onmouseout="outChange(this)">배경 및 글자색 변경</button><br><br>
+    <img src ="imgs/cr1.jpg" width="400" height="300" onclick="changeImg(this)" style="cursor: pointer;"><br><br>
+    <img src ="imgs/cr1.jpg" width="400" height="300" id="img2">
 </body>
 </html>
