@@ -13,14 +13,18 @@
             height : "100px",  
             background : "orange"
             }
-            ).on("click", function(){
-                $(this).css("background" , "red");
-            }).on("mouseenter", function(){
-                $(this).css("background" , "blue");
-            }).on("mouseleave", function(){
-                $(this).css("background" , "orange");
+            ).on({
+                click : function(){
+                    $(this).css("background" , "red");
+                },
+                mouseenter : function(){
+                    $(this).css("background" , "blue");
+                },
+                mouseleave : function(){
+                    $(this).css("background" , "orange");
+                }
             });
-        }
+        } 
     );
 </script>
 </head>
